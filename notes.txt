@@ -6,5 +6,28 @@ System
 Management
 Galactic
 Governance
+Displacement
 
 System for Imperial Galactic Governance (SIGG)
+
+"Imperial Displacement Logistics"
+--- Implement
+
+(- DisplacementService (who and where). Commands: move x from y to z)
+- List planets with name (slow)
+- List of troops with name (fails)
+- Planet page with description, image and troop displacement
+- Troop page with image and displacement
+
+--- Demo
+
+- Add jaeger
+
+--- Find and fix
+
+- Slow request
+- Failed request
+
+--- Other
+
+- Add tracing data

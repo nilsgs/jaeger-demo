@@ -28,6 +28,9 @@ namespace TroopCatalogue.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Trooper>> Get(int id)
         {
+            if(id == 2)
+                return NotFound();
+
             var trooper = await _db.Troopers.FirstOrDefaultAsync(x => x.Id == id);
 
             if (trooper == null)

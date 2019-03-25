@@ -1,0 +1,10 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = $"Trooper: {Model.name}";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.name</h1>
+    <img src="~/img/@Model.image" />
+</div>

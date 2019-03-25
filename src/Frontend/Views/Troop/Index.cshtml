@@ -1,0 +1,18 @@
+﻿@model TroopIndexViewModel
+
+@{
+    ViewData["Title"] = "Imperial Planets";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Troops</h1>
+
+    <ul class="list-group">
+        @foreach (var trooper in Model.Troops)
+        {
+        <li class="list-group-item">
+            <a href="/Troop/Details/@trooper.id">@trooper.name</a>
+        </li>
+        }
+    </ul>
+</div>

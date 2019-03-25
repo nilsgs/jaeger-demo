@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,8 @@ namespace PlanetCatalogue.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Planet>> Get(int id)
         {
+            Thread.Sleep(5000);
+
             var planet = await _db.Planets.FirstOrDefaultAsync(x => x.Id == id);
 
             if (planet == null)
