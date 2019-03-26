@@ -4,8 +4,37 @@
     ViewData["Title"] = $"Planet: {Model.name}";
 }
 
-<div class="text-center">
+<div class="text-body">
     <h1 class="display-4">@Model.name</h1>
     <img src="~/img/@Model.image"/>
     <p>@Model.description</p>
+    
+    @if (Model.extra != null)
+    {
+        <dl class="row">
+            <dt class="col-sm-3">Rotation period:</dt>
+            <dd class="col-sm-9">@Model.extra.rotation_period</dd>
+
+            <dt class="col-sm-3">Orbital period:</dt>
+            <dd class="col-sm-9">@Model.extra.orbital_period</dd>
+
+            <dt class="col-sm-3">Diameter:</dt>
+            <dd class="col-sm-9">@Model.extra.diameter</dd>
+
+            <dt class="col-sm-3">Climate:</dt>
+            <dd class="col-sm-9">@Model.extra.climate</dd>
+
+            <dt class="col-sm-3">Gravity:</dt>
+            <dd class="col-sm-9">@Model.extra.gravity</dd>
+
+            <dt class="col-sm-3">Terrain:</dt>
+            <dd class="col-sm-9">@Model.extra.terrain</dd>
+
+            <dt class="col-sm-3">Surface water:</dt>
+            <dd class="col-sm-9">@Model.extra.surface_water</dd>
+
+            <dt class="col-sm-3">Population:</dt>
+            <dd class="col-sm-9">@Model.extra.population</dd>
+        </dl>
+    }
 </div>

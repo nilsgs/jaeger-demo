@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PlanetCatalogue.Models;
+using PlanetCatalogue.Services;
 
 namespace PlanetCatalogue
 {
@@ -23,10 +25,16 @@ namespace PlanetCatalogue
 
             services.AddDbContext<PlanetContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("Planets")));
+
+            services.AddHttpClient<SwapiService>(c =>
+            {
+                c.BaseAddress = new Uri("https://swapi.co");
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

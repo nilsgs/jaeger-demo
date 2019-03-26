@@ -8,21 +8,9 @@ namespace Frontend.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly PlanetService _planetService;
-
-        public HomeController(PlanetService planetService)
+        public IActionResult Index()
         {
-            _planetService = planetService;
-        }
-
-        public async Task<IActionResult> Index()
-        {
-            var planets = await _planetService.GetAllPlanets();
-
-            return View(new HomeViewModel
-            {
-                Planets = planets
-            });
+            return View();
         }
 
         public IActionResult Privacy()
