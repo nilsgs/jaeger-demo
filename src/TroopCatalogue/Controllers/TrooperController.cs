@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OpenTracing;
 using TroopCatalogue.Models;
 
 namespace TroopCatalogue.Controllers
@@ -12,10 +13,12 @@ namespace TroopCatalogue.Controllers
     public class TrooperController : ControllerBase
     {
         private readonly TrooperContext _db;
+        private readonly ITracer _tracer;
 
-        public TrooperController(TrooperContext db)
+        public TrooperController(TrooperContext db, ITracer tracer)
         {
             _db = db;
+            _tracer = tracer;
         }
 
         [HttpGet]
@@ -44,5 +47,13 @@ namespace TroopCatalogue.Controllers
         public void Post([FromBody] string value)
         {
         }
+
+        //_tracer.ActiveSpan.Log(new Dictionary<string, object>
+        //{
+        //    {"trooper.id", id
+        //    }
+        //});
+        //_tracer.ActiveSpan.SetTag("trooper.id", id);
+        //_tracer.ActiveSpan.SetOperationName("Get Trooper Details");
     }
 }
