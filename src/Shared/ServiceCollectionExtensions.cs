@@ -12,6 +12,7 @@ namespace Shared
     {
         public static void AddJaeger(this IServiceCollection services)
         {
+            // Open Tracing instrumentation
             services.AddOpenTracing();
 
             services.AddSingleton<ITracer>(serviceProvider =>

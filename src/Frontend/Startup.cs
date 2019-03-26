@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared;
 
 namespace Frontend
 {
@@ -30,6 +31,8 @@ namespace Frontend
             {
                 c.BaseAddress = new Uri("https://localhost:44366");
             });
+
+            services.AddJaeger();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

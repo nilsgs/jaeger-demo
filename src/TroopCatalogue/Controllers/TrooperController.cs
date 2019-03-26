@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +30,7 @@ namespace TroopCatalogue.Controllers
         public async Task<ActionResult<Trooper>> Get(int id)
         {
             if(id == 2)
-                return NotFound();
+                throw new Exception("Admiral Ackbar was here!!");
 
             var trooper = await _db.Troopers.FirstOrDefaultAsync(x => x.Id == id);
 
