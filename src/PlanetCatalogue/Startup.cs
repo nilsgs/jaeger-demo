@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PlanetCatalogue.Models;
 using PlanetCatalogue.Services;
+using Shared;
 
 namespace PlanetCatalogue
 {
@@ -30,6 +31,8 @@ namespace PlanetCatalogue
             {
                 c.BaseAddress = new Uri("https://swapi.co");
             });
+
+            services.AddJaeger();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

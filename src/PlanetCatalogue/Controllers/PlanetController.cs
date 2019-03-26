@@ -34,7 +34,7 @@ namespace PlanetCatalogue.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<dynamic>> Get(int id)
         {
-            //Thread.Sleep(5000);
+            Thread.Sleep(5000);
 
             var planet = await _db.Planets.FirstOrDefaultAsync(x => x.Id == id);
 

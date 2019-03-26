@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared;
 using TroopCatalogue.Models;
 
 namespace TroopCatalogue
@@ -23,6 +24,8 @@ namespace TroopCatalogue
 
             services.AddDbContext<TrooperContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Troopers")));
+
+            services.AddJaeger();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
